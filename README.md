@@ -5,7 +5,7 @@
 ![](https://img.shields.io/badge/Installation-pip%20install%20vaexede-181717?style=plastic)
 [![arXiv](https://img.shields.io/badge/arXiv-2502.09810-b31b1b.svg)](https://arxiv.org/abs/2502.09810)
 
-A repository to host the trained models from [https://arxiv.org/abs/2502.09810](https://arxiv.org/abs/2502.09810v1). 
+A repository to host the trained models from [https://arxiv.org/abs/2502.09810](https://arxiv.org/abs/2502.09810v1), where we trained a variational autoencoder (VAE) on CMB temperature power spectra for early dark energy (EDE) models, to discover novel, data-driven parametrizations.  
 
 ## Installation
 
@@ -23,7 +23,7 @@ To use the trained models, follow these steps:
         cd VAExEDE
         pip install . 
 
-The latter option will also give you access to a [Jupyter notebook with a quick walkthrough](https://github.com/dpiras/VAExEDE/notebooks/quickstart.ipynb) on how to use the models.
+The latter option will also give you access to a [Jupyter notebook with a quick walkthrough](https://github.com/dpiras/VAExEDE/blob/main/notebooks/quickstart.ipynb) on how to use the models.
 
 ## Usage
 
