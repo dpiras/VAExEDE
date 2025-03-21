@@ -1,4 +1,6 @@
 from vaexede.models import CVAE
+# to deal with the pre-saved models 
+import pkg_resources
 
 def load_model(model):
     """ A snippet to load one of the two models. 
@@ -13,11 +15,11 @@ def load_model(model):
     if model == 'lcdm':
         l = 5 # latent space dimensionality
         beta = 1e-5 # beta value
-        model_path = f'./trained_models/best_model_{l}dim_{beta}beta_lcdmrefsuffix_30lmin_normlog'
+        model_path = pkg_resources.resource_filename("vaexede", f"trained_models/best_model_{l}dim_{beta}beta_lcdmrefsuffix_30lmin_normlog")
     else:
         l = 8 # latent space dimensionality
         beta = 2e-5 # beta value
-        model_path = f'./trained_models/best_model_{l}dim_{beta}beta_ederefsuffix_30lmin_normlog'
+        model_path = pkg_resources.resource_filename("vaexede", f"trained_models/best_model_{l}dim_{beta}beta_ederefsuffix_30lmin_normlog")
 
     best_model = CVAE(input_dim, l, concat=False) # concatenation can be ignored here
     best_model.load_weights(model_path)
