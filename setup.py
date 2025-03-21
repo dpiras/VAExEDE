@@ -19,6 +19,7 @@ setup(
     url='https://github.com/dpiras/VAExEDE',
     license='GNU General Public License v3.0 (GPLv3)',
     packages=find_packages(),
+    package_data= {'vaexede': ['trained_models/*']},
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
@@ -26,6 +27,7 @@ setup(
     ],
     python_requires='>=3.9',
     install_requires=['tensorflow',
+                      'keras<3',
                       'matplotlib',
                       'numpy']
                       )
