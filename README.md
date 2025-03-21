@@ -15,14 +15,14 @@ To use the trained models, follow these steps:
 3. Install the package:
 
         pip install vaexede
-        python3 -c 'from vaexede.load_models import load_model'
+        python -c 'from vaexede.load_models import load_model'
 
    or alternatively, clone the repository and install it:
 
         git clone https://github.com/dpiras/VAExEDE.git
         cd VAExEDE
         pip install . 
-        python3 -c 'from vaexede.load_models import load_model'
+        python -c 'from vaexede.load_models import load_model'
 
 The latter option will also give you access to a [Jupyter notebook with a quick walkthrough](https://github.com/dpiras/VAExEDE/blob/main/notebooks/quickstart.ipynb) on how to use the models.
 
