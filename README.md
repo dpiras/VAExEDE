@@ -5,14 +5,55 @@
 ![](https://img.shields.io/badge/Installation-pip%20install%20vaexede-181717?style=plastic)
 [![arXiv](https://img.shields.io/badge/arXiv-2502.09810-b31b1b.svg)](https://arxiv.org/abs/2502.09810)
 
-
 A repository to host the trained models from [https://arxiv.org/abs/2502.09810](https://arxiv.org/abs/2502.09810v1). 
 
-Work in progress.
+## Installation
 
-## Contributing and contacts
+To use the trained models, follow these steps:
+1. (optional) `conda create -n vaexede python=3.11 jupyter` (create a custom `conda` environment with python 3.9) 
+2. (optional) `conda activate vaexede` (activate it)
+3. Install the packag:
 
-Laura Herold and Luisa Lucie-Smith also contributed to this code. Feel free to [fork](https://github.com/dpiras/VAExEDE/fork) this repository to work on it; otherwise, please [raise an issue](https://github.com/dpiras/VAExEDE/issues) or contact [Davide Piras](mailto:dr.davide.piras@gmail.com).
+        pip install vaexede
+        python3 -c 'from gmm_mi.mi import EstimateMI'
+
+   or alternatively, clone the repository and install it:
+
+        git clone https://github.com/dpiras/vaexede.git
+        cd VAExEDE
+        pip install . 
+
+The latter option will also give you access to a [Jupyter notebook with a quick walkthrough](https://github.com/dpiras/VAExEDE/notebooks/quickstart.ipynb) on how to use the models.
+
+## Usage
+
+A simple way to load and use the trained models looks like this:
+
+    model = 'lcdm' # either 'lcdm' or 'ede'
+    lcdm_model = load_model(model) # load the trained network
+
+    # add your unitless D_ell temperature spectrum here, in the ell range [30, 2500]
+    # should also support batches of data, has not been tested though
+    # D_ell = C_ell * ell * (ell+1) / 2pi
+    input_spectrum = # your spectrum here
+
+    # and preprocess it as described in the paper
+    input_spectrum_preprocess = preprocess(input_spectrum, model)
+
+    # here the preprocessed spectrum gets encoded, samples from the latent space are obtained
+    # then the spectrum is decoded and unpreprocessed
+    mean, logvar = lcdm_model.encode(input_spectrum_preprocess.reshape(1, -1))
+    z = lcdm_model.reparameterize(mean, logvar) # here we sample from the latent distribution
+    decoded_spectrum = lcdm_model.decode(z)
+    output_spectrum_lcdm = unpreprocess(decoded_spectrum[0, :, 0], model)
+
+## Disclaimer
+
+The repository contains only some of the material needed to reproduce the paper; if you would like to explore anything else just check the next section. If you need more or would like to add a feature,  Feel free to [fork](https://github.com/dpiras/VAExEDE/fork) this repository to work on it; otherwise, please [raise an issue](https://github.com/dpiras/VAExEDE/issues) or contact [Davide Piras](mailto:dr.davide.piras@gmail.com).
+
+## Contributors
+
+[Laura Herold](https://github.com/LauraHerold) and [Luisa Lucie-Smith](https://github.com/lluciesmith) contributed to this code.
 
 ## Citation
 
