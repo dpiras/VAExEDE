@@ -10,16 +10,16 @@ A repository to host the trained models from [https://arxiv.org/abs/2502.09810](
 ## Installation
 
 To use the trained models, follow these steps:
-1. (optional) `conda create -n vaexede python=3.11 jupyter` (create a custom `conda` environment with python 3.9) 
+1. (optional) `conda create -n vaexede python=3.11 jupyter` (create a custom `conda` environment with python 3.11) 
 2. (optional) `conda activate vaexede` (activate it)
-3. Install the packag:
+3. Install the package:
 
         pip install vaexede
-        python3 -c 'from gmm_mi.mi import EstimateMI'
+        python3 -c 'from vaexede.load_models import load_model'
 
    or alternatively, clone the repository and install it:
 
-        git clone https://github.com/dpiras/vaexede.git
+        git clone https://github.com/dpiras/VAExEDE.git
         cd VAExEDE
         pip install . 
 
@@ -49,7 +49,7 @@ A simple way to load and use the trained models looks like this:
 
 ## Disclaimer
 
-The repository contains only some of the material needed to reproduce the paper; if you would like to explore anything else just check the next section. If you need more or would like to add a feature,  Feel free to [fork](https://github.com/dpiras/VAExEDE/fork) this repository to work on it; otherwise, please [raise an issue](https://github.com/dpiras/VAExEDE/issues) or contact [Davide Piras](mailto:dr.davide.piras@gmail.com).
+The repository contains only some of the material needed to reproduce the paper. If you need more or would like to add a feature, feel free to [fork](https://github.com/dpiras/VAExEDE/fork) this repository to work on it; otherwise, please [raise an issue](https://github.com/dpiras/VAExEDE/issues) or contact [Davide Piras](mailto:dr.davide.piras@gmail.com).
 
 ## Contributors
 
